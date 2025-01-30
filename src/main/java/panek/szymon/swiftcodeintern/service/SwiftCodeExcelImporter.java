@@ -50,6 +50,11 @@ public class SwiftCodeExcelImporter {
         }
     }
 
+    private String getCellValue(Row row, ExcelColumn column) {
+        Cell cell = row.getCell(column.getIndex());
+        return cell != null ? cell.getStringCellValue().trim() : "";
+    }
+
 //    private boolean validateHeaders(Sheet sheet) {
 //        Row headerRow = sheet.getRow(0);
 //        if (headerRow == null) {
@@ -68,10 +73,7 @@ public class SwiftCodeExcelImporter {
 //        return true;
 //    }
 
-    private String getCellValue(Row row, ExcelColumn column) {
-        Cell cell = row.getCell(column.getIndex());
-        return cell != null ? cell.getStringCellValue().trim() : "";
-    }
+
 }
 
 
