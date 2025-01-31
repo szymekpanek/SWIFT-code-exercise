@@ -24,13 +24,11 @@ public class SwiftService {
 
     public List<SwiftCode> getBranchesForHeadquarter(String swiftCode) {
         String headquarterPrefix = swiftCode.substring(0, 8);
-        System.out.println("Headquarter Prefix: " + headquarterPrefix);
-        List<SwiftCode> branches = repository.findBySwiftCodeStartingWith(headquarterPrefix);
-        System.out.println("Branches: " + branches);
-        return branches;
+        return repository.findBySwiftCodeStartingWithAndIsHeadquarter(headquarterPrefix, false);
     }
 
     public void saveSwiftCode(SwiftCode swiftCode) {
+        swiftCode.setHeadquarter(swiftCode.getSwiftCode().endsWith("XXX"));
         repository.save(swiftCode);
     }
 

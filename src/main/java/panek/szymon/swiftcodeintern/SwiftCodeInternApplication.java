@@ -17,9 +17,9 @@ public class SwiftCodeInternApplication {
     @Bean
     CommandLineRunner runOnStartup() {
         return args -> {
-            String filePath = "src/main/resources/Interns_2025_SWIFT_CODES.xlsx"; // Ścieżka do pliku Excel
+            String filePath = "src/main/resources/Interns_2025_SWIFT_CODES.xlsx";
             importer.importFromExcel(filePath);
-            System.out.println("Dane z pliku Excel zostały zaimportowane do bazy.");
+            System.out.println("Data from Exel file was successfully added to the data base");
         };
     }
 
