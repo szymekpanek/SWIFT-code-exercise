@@ -1,11 +1,11 @@
 package panek.szymon.swiftcodeintern.service;
 
-import lombok.Getter;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
 import panek.szymon.swiftcodeintern.model.SwiftCode;
 import panek.szymon.swiftcodeintern.repository.SwiftCodeRepository;
+
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +23,6 @@ public class SwiftCodeExcelImporter {
              Workbook workbook = new XSSFWorkbook(fis)) {
 
             Sheet sheet = workbook.getSheetAt(0);
-
-//            if (!validateHeaders(sheet)) {
-//                throw new RuntimeException("Nagłówki w pliku Excel są niepoprawne.");
-//            }
 
             List<SwiftCode> swiftCodes = new ArrayList<>();
 
@@ -54,26 +50,6 @@ public class SwiftCodeExcelImporter {
         Cell cell = row.getCell(column.getIndex());
         return cell != null ? cell.getStringCellValue().trim() : "";
     }
-
-//    private boolean validateHeaders(Sheet sheet) {
-//        Row headerRow = sheet.getRow(0);
-//        if (headerRow == null) {
-//            return false;
-//        }
-//
-//        for (ExcelColumn column : ExcelColumn.values()) {
-//            Cell cell = headerRow.getCell(column.getIndex());
-//            String header = (cell != null) ? cell.getStringCellValue().trim() : "";
-//
-//            if (!header.equalsIgnoreCase(column.name())) {
-//                return false;
-//            }
-//        }
-//
-//        return true;
-//    }
-
-
 }
 
 

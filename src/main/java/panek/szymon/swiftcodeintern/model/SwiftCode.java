@@ -1,7 +1,7 @@
 package panek.szymon.swiftcodeintern.model;
 
 import jakarta.persistence.*;
-
+import org.hibernate.annotations.processing.Pattern;
 
 
 @Entity

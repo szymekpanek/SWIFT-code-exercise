@@ -15,6 +15,9 @@ public class SwiftService {
     }
 
     public List<SwiftCode> getSwiftCodesByCountry(String countryISO2) {
+        if (countryISO2 == null) {
+            throw new IllegalArgumentException("Country ISO code must not be null");
+        }
         return repository.findByCountryISO2(countryISO2.toUpperCase());
     }
 

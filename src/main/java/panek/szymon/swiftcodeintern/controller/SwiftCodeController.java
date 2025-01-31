@@ -5,13 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import panek.szymon.swiftcodeintern.model.SwiftCode;
-import panek.szymon.swiftcodeintern.repository.SwiftCodeRepository;
 import panek.szymon.swiftcodeintern.service.SwiftService;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/v1/swift-codes")
