@@ -10,7 +10,7 @@
     </parent>
     <groupId>panek.szymon</groupId>
     <artifactId>SwiftCodeIntern</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <name>SwiftCodeIntern</name>
     <description>SwiftCodeIntern</description>
     <url/>
@@ -80,6 +80,8 @@
     </dependencies>
 
     <build>
+        <finalName>swift-code-intern</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -107,5 +109,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

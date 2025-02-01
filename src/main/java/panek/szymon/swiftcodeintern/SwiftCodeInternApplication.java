@@ -17,11 +17,19 @@ public class SwiftCodeInternApplication {
     @Bean
     CommandLineRunner runOnStartup() {
         return args -> {
-            String filePath = "src/main/resources/Interns_2025_SWIFT_CODES.xlsx";
+            String filePath;
+
+            if (System.getenv("RUNNING_IN_DOCKER") != null) {
+                filePath = "/app/data/Interns_2025_SWIFT_CODES.xlsx";
+            } else {
+                filePath = "src/main/resources/data/Interns_2025_SWIFT_CODES.xlsx";
+            }
+
             importer.importFromExcel(filePath);
-            System.out.println("Data from Exel file was successfully added to the data base");
+            System.out.println("Data from Excel file was successfully added to the database");
         };
     }
+
 
     public static void main(String[] args) {
         SpringApplication.run(SwiftCodeInternApplication.class, args);
