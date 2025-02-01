@@ -55,8 +55,17 @@ public class SwiftCodeController {
 
     @PostMapping("/{swiftCode}")
     public ResponseEntity<?> deleteSwiftCode(@PathVariable String swiftCode) {
+        SwiftCode code = service.getSwiftCode(swiftCode);
+
+        if (code == null) {
+            return ResponseEntity.status(404).body(Map.of("error", "SWIFT code not found"));
+        }
+
         service.deleteSwiftCode(swiftCode);
         return ResponseEntity.ok(Map.of("message", "SWIFT code deleted successfully"));
     }
+
+
+
 }
 
